@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#009688"
+    tools:context=".MainAudi">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="20dp"
+        android:text="@string/text1"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textDirection="locale"
+        android:textIsSelectable="false"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:autoSizeTextType="none"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/strtAudi"
+        android:layout_width="70dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="20dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="номер"
+        android:inputType="textPersonName"
+        android:textColorHighlight="#800E0D0D"
+        android:textColorLink="#141414"
+        app:layout_constraintEnd_toStartOf="@+id/endAudi"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <EditText
+        android:id="@+id/endAudi"
+        android:layout_width="70dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="231dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:hint="номер"
+        android:inputType="textPersonName"
+        android:textColorHighlight="#80131212"
+        android:textColorLink="#141313"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/strtAudi"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="256dp"
+        android:layout_height="27dp"
+        android:layout_marginStart="79dp"
+        android:layout_marginTop="136dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginBottom="457dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/endAudi"
+        app:layout_constraintVertical_bias="0.65999997" />
+
+    <Button
+        android:id="@+id/button1"
+        style="@android:style/Widget.Holo.Button.Small"
+        android:layout_width="377dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="20dp"
+        android:text="Проложить маршрут"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

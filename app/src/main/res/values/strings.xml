@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">My Stankin</string>
+    <string name="betta">Педогогический состав ( betta )</string>
+    <string name="caf">Найти кафедру</string>
+    <string name="aud">Найти аутидорию</string>
+    <string name="zagolovok">Гид по МГТУ СТАНКИН</string>
+    <string name="todo">TODO</string>
+    <string name="text1">Введите номер аудитории рядом с Вами и номер нужной Вам</string>
+    <string name="text2">Введите номер аудитории рядом с Вами и номер нужной Вам кафедры</string>
+</resources>
