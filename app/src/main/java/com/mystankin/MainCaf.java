@@ -17,29 +17,77 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import android.os.Environment;
 
 public class MainCaf extends AppCompatActivity {
 
     Button Back;
     String[] data = {"ИИСТ", "ИАР", "Математика", "еще что то", "Физика"};
     String[] num = {"0001", "0002", "0003", "0004", "0005"};
-    List<String> dlist = new ArrayList<String>();
-    List<String> nlist = new ArrayList<String>();
+    List<String> datal = new ArrayList<String>();
+    List<String> numl = new ArrayList<String>();
     String a,b,c;
     EditText editrstst1;
     TextView te;
     int flag = 1, pos;
 
+    private void readDataFile() {
+        setContentView(R.layout.activity_main_caf);
+        File myFile = new File(Environment.getExternalStorageDirectory().toString() + "/" + "data.txt");
+        try {
+            FileInputStream inputStream = new FileInputStream(myFile);
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+            //StringBuilder stringBuilder = new StringBuilder();
+            String line;
+            try {
+                while ((line = bufferedReader.readLine()) != null) {
+                    datal.add(line);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+    private void readNumFile() {
+        setContentView(R.layout.activity_main_caf);
+        File myFile = new File(Environment.getExternalStorageDirectory().toString() + "/" + "num.txt");
+        try {
+            FileInputStream inputStream = new FileInputStream(myFile);
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+            //StringBuilder stringBuilder = new StringBuilder();
+            String line;
+            try {
+                while ((line = bufferedReader.readLine()) != null) {
+                    numl.add(line);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_caf);
+
+        readDataFile();
+        readNumFile();
 
         ActionBar actionBar =getSupportActionBar();
         actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, data);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, datal);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         Spinner spinner = (Spinner) findViewById(R.id.spinner);
@@ -56,7 +104,7 @@ public class MainCaf extends AppCompatActivity {
         spinner.setOnItemSelectedListener(new OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getBaseContext(), "Выбрна кафедра: " + data[position] , Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), "Выбрна кафедра: " + datal.get(position) , Toast.LENGTH_SHORT).show();
                 pos = position;
             }
             @Override
@@ -84,7 +132,7 @@ public class MainCaf extends AppCompatActivity {
                 }
                 else {
                     a = editrstst1.getText().toString();
-                    b = num[pos];
+                    b = numl.get(pos);
 
                             c = a + b;
                     te.setText("Результат сложения = " + c);
