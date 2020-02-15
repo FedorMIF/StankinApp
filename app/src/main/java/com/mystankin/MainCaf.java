@@ -1,9 +1,13 @@
 package com.mystankin;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import java.util.ArrayList;
+import java.util.EmptyStackException;
 import java.util.List;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -24,18 +28,94 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import android.os.Environment;
+import java.io.FileOutputStream;
+import android.Manifest;
+import android.content.pm.PackageManager;
+
+
+import com.google.android.material.snackbar.Snackbar;
 
 public class MainCaf extends AppCompatActivity {
 
     Button Back;
-    String[] data = {"ИИСТ", "ИАР", "Математика", "еще что то", "Физика"};
-    String[] num = {"0001", "0002", "0003", "0004", "0005"};
+    //String[] data = {"ИИСТ", "ИАР", "Математика", "еще что то", "Физика"};
+    //String[] num = {"0001", "0002", "0003", "0004", "0005"};
+    String data = "ИИСТ";
+    String num = "0001";
     List<String> datal = new ArrayList<String>();
     List<String> numl = new ArrayList<String>();
     String a,b,c;
     EditText editrstst1;
     TextView te;
     int flag = 1, pos;
+
+//    public void EnableRuntimePermission(){
+//
+//        if (ActivityCompat.shouldShowRequestPermissionRationale(MainCaf.this, new String[]{
+//                Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, RequestPermissionCode))
+//        {
+//
+//            Toast.makeText(MainCaf.this,"CONTACTS permission allows us to Access CONTACTS app", Toast.LENGTH_LONG).show();
+//
+//        } else {
+//
+//            ActivityCompat.requestPermissions(MainCaf.this,new String[]{
+//                    Manifest.permission.READ_CONTACTS}, RequestPermissionCode);
+//
+//        }
+//    }
+//
+//    public void PermissionStatus(){
+//
+//        RequestCheckResult = ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.READ_CONTACTS);
+//
+//        if (RequestCheckResult == PackageManager.PERMISSION_GRANTED){
+//
+//            RequestTF = true;
+//
+//        } else {
+//
+//            RequestTF = false;
+//
+//        }
+//
+//    }
+
+    private void writeDataFile() {
+        try {
+            /*
+             * Создается объект файла, при этом путь к файлу находиться методом класcа Environment
+             * Обращение идёт, как и было сказано выше к внешнему накопителю
+             */
+            File myFile = new File(Environment.getExternalStorageDirectory().toString() + "/" + "data.txt");
+            myFile.createNewFile();                                         // Создается файл, если он не был создан
+            if (myFile.length() == 0) {
+                FileOutputStream outputStream = new FileOutputStream(myFile);   // После чего создаем поток для записи
+                outputStream.write(data.getBytes());                            // и производим непосредственно запись
+                outputStream.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void writeNumFile() {
+        try {
+            /*
+             * Создается объект файла, при этом путь к файлу находиться методом класcа Environment
+             * Обращение идёт, как и было сказано выше к внешнему накопителю
+             */
+            File myFile = new File(Environment.getExternalStorageDirectory().toString() + "/" + "num.txt");
+            myFile.createNewFile();                                         // Создается файл, если он не был создан
+            if (myFile.length() == 0) {
+                FileOutputStream outputStream = new FileOutputStream(myFile);   // После чего создаем поток для записи
+                outputStream.write(num.getBytes());                            // и производим непосредственно запись
+                outputStream.close();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     private void readDataFile() {
         setContentView(R.layout.activity_main_caf);
@@ -76,10 +156,14 @@ public class MainCaf extends AppCompatActivity {
         }
     }
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        writeDataFile();
+        writeNumFile();
         readDataFile();
         readNumFile();
 
