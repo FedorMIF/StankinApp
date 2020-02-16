@@ -49,44 +49,8 @@ public class MainCaf extends AppCompatActivity {
     TextView te;
     int flag = 1, pos;
 
-//    public void EnableRuntimePermission(){
-//
-//        if (ActivityCompat.shouldShowRequestPermissionRationale(MainCaf.this, new String[]{
-//                Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, RequestPermissionCode))
-//        {
-//
-//            Toast.makeText(MainCaf.this,"CONTACTS permission allows us to Access CONTACTS app", Toast.LENGTH_LONG).show();
-//
-//        } else {
-//
-//            ActivityCompat.requestPermissions(MainCaf.this,new String[]{
-//                    Manifest.permission.READ_CONTACTS}, RequestPermissionCode);
-//
-//        }
-//    }
-//
-//    public void PermissionStatus(){
-//
-//        RequestCheckResult = ContextCompat.checkSelfPermission(getApplicationContext(), Manifest.permission.READ_CONTACTS);
-//
-//        if (RequestCheckResult == PackageManager.PERMISSION_GRANTED){
-//
-//            RequestTF = true;
-//
-//        } else {
-//
-//            RequestTF = false;
-//
-//        }
-//
-//    }
-
     private void writeDataFile() {
         try {
-            /*
-             * Создается объект файла, при этом путь к файлу находиться методом класcа Environment
-             * Обращение идёт, как и было сказано выше к внешнему накопителю
-             */
             File myFile = new File(Environment.getExternalStorageDirectory().toString() + "/" + "data.txt");
             myFile.createNewFile();                                         // Создается файл, если он не был создан
             if (myFile.length() == 0) {
@@ -101,10 +65,6 @@ public class MainCaf extends AppCompatActivity {
 
     private void writeNumFile() {
         try {
-            /*
-             * Создается объект файла, при этом путь к файлу находиться методом класcа Environment
-             * Обращение идёт, как и было сказано выше к внешнему накопителю
-             */
             File myFile = new File(Environment.getExternalStorageDirectory().toString() + "/" + "num.txt");
             myFile.createNewFile();                                         // Создается файл, если он не был создан
             if (myFile.length() == 0) {
