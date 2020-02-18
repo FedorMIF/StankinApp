@@ -31,8 +31,6 @@ import android.os.Environment;
 import java.io.FileOutputStream;
 import android.Manifest;
 import android.content.pm.PackageManager;
-
-
 import com.google.android.material.snackbar.Snackbar;
 
 public class MainCaf extends AppCompatActivity {
@@ -83,7 +81,6 @@ public class MainCaf extends AppCompatActivity {
         try {
             FileInputStream inputStream = new FileInputStream(myFile);
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-            //StringBuilder stringBuilder = new StringBuilder();
             String line;
             try {
                 while ((line = bufferedReader.readLine()) != null) {
@@ -102,7 +99,6 @@ public class MainCaf extends AppCompatActivity {
         try {
             FileInputStream inputStream = new FileInputStream(myFile);
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-            //StringBuilder stringBuilder = new StringBuilder();
             String line;
             try {
                 while ((line = bufferedReader.readLine()) != null) {
