@@ -8,10 +8,25 @@
     tools:context=".MainActivity">
 
     <Button
+        android:id="@+id/but_Audi"
+        style="@android:style/Widget.Holo.Button.Small"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="24dp"
+        android:onClick="onClickBtn"
+        android:text="@string/aud"
+        app:layout_constraintBottom_toTopOf="@+id/but_Caf"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
         android:id="@+id/but_Ped"
         style="@android:style/Widget.Holo.Button.Small"
-        android:layout_width="168dp"
-        android:layout_height="64dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="120dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="120dp"
@@ -23,16 +38,16 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.9" />
+        app:layout_constraintVertical_bias="0.989" />
 
     <Button
         android:id="@+id/but_Caf"
         style="@android:style/Widget.Holo.Button.Small"
-        android:layout_width="170dp"
-        android:layout_height="55dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginStart="120dp"
         android:layout_marginEnd="120dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="12dp"
         android:onClick="onClickBtn"
         android:text="@string/caf"
         app:layout_constraintBottom_toTopOf="@+id/but_Ped"
@@ -40,46 +55,33 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/but_Audi"
-        style="@android:style/Widget.Holo.Button.Small"
-        android:layout_width="171dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginEnd="120dp"
-        android:layout_marginBottom="16dp"
-        android:onClick="onClickBtn"
-        android:text="@string/aud"
-        app:layout_constraintBottom_toTopOf="@+id/but_Caf"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        android:gravity="center"
         android:text="@string/zagolovok"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.727"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="290dp"
-        android:layout_height="408dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_marginBottom="250dp"
         android:contentDescription="@string/todo"
         android:src="@drawable/stankin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintHorizontal_bias="0.54"
+        app:layout_constraintHorizontal_bias="0.307"
         app:layout_constraintStart_toStartOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.19999999" />
+        app:layout_constraintVertical_bias="0.676" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

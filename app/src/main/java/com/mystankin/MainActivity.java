@@ -26,8 +26,8 @@ public class MainActivity extends Activity {
     private void requestStoragePermission(){
         if (ActivityCompat.shouldShowRequestPermissionRationale(MainActivity.this,Manifest.permission.READ_EXTERNAL_STORAGE)){
 
-            new AlertDialog.Builder(this).setTitle("Нужно разрешение")
-                    .setMessage("Это разрешение надо для корректной работы приложения")
+            new AlertDialog.Builder(this).setTitle("Разрешение")
+                    .setMessage("Разрешение нужно для корректной работы приложения")
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int i) {

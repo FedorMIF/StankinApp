@@ -49,7 +49,7 @@ public class MainCaf extends AppCompatActivity {
 
     private void writeDataFile() {
         try {
-            File myFile = new File(Environment.getExternalStorageDirectory().toString() + "/" + "data.txt");
+            File myFile = new File(getFilesDir(), "data.txt");
             myFile.createNewFile();                                         // Создается файл, если он не был создан
             if (myFile.length() == 0) {
                 FileOutputStream outputStream = new FileOutputStream(myFile);   // После чего создаем поток для записи
@@ -63,7 +63,7 @@ public class MainCaf extends AppCompatActivity {
 
     private void writeNumFile() {
         try {
-            File myFile = new File(Environment.getExternalStorageDirectory().toString() + "/" + "num.txt");
+            File myFile = new File(getFilesDir(), "num.txt");
             myFile.createNewFile();                                         // Создается файл, если он не был создан
             if (myFile.length() == 0) {
                 FileOutputStream outputStream = new FileOutputStream(myFile);   // После чего создаем поток для записи
@@ -77,7 +77,7 @@ public class MainCaf extends AppCompatActivity {
 
     private void readDataFile() {
         setContentView(R.layout.activity_main_caf);
-        File myFile = new File(Environment.getExternalStorageDirectory().toString() + "/" + "data.txt");
+        File myFile = new File(getFilesDir(), "data.txt");
         try {
             FileInputStream inputStream = new FileInputStream(myFile);
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
@@ -95,7 +95,7 @@ public class MainCaf extends AppCompatActivity {
     }
     private void readNumFile() {
         setContentView(R.layout.activity_main_caf);
-        File myFile = new File(Environment.getExternalStorageDirectory().toString() + "/" + "num.txt");
+        File myFile = new File(getFilesDir(), "num.txt");
         try {
             FileInputStream inputStream = new FileInputStream(myFile);
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
